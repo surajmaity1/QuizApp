@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">QuizApp</string>
+    <string name="quiz_app">Quiz Application</string>
+    <string name="greeting">Welcome</string>
+    <string name="ask_name">Enter Your Name: </string>
+    <string name="name">Name</string>
+    <string name="tap_to_go">Play</string>
+    <string name="ques_img">Question Image</string>
+    <string name="_2_5">2/5</string>
+    <string name="next">NEXT</string>
+    <string name="go_to_next_ques">Go to NEXT QUESTION</string>
+    <string name="finish_ques">FINISH</string>
 </resources>
