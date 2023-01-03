@@ -10,4 +10,8 @@
     <string name="next">NEXT</string>
     <string name="go_to_next_ques">Go to NEXT QUESTION</string>
     <string name="finish_ques">FINISH</string>
+    <string name="result">Result</string>
+    <string name="image">image</string>
+    <string name="hey_congratulations">Hey, Congratulations!</string>
+    <string name="finish">FINISH</string>
 </resources>

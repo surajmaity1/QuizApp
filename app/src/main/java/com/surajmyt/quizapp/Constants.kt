@@ -2,6 +2,10 @@ package com.surajmyt.quizapp
 
 object Constants {
 
+    const val USER_NAME: String = "user_name"
+    const val TOTAL_QUES: String = "total_ques"
+    const val CORRECT_ANS: String = "correct_ans"
+
     fun getQuestions(): ArrayList<Question>{
         val quesList = ArrayList<Question>()
 

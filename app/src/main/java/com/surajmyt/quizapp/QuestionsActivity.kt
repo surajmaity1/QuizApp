@@ -1,5 +1,6 @@
 package com.surajmyt.quizapp
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -24,10 +25,14 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private var mCurrentPosition: Int = 1
     private var mQuestionList: ArrayList<Question>? = null
     private var mSelectedOption: Int = 0
+    private var mUserName: String? = null
+    private var mCorrectAns: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_questions)
+
+        mUserName = intent.getStringExtra(Constants.USER_NAME)
 
         progressBar = findViewById(R.id.progressBar)
         progressBarTxt = findViewById(R.id.progress_bar_text)
@@ -140,8 +145,14 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
                         }
                         //  WHEN ALL QUESTIONS ARE ATTEMPTED
                         else -> {
-                            Toast.makeText(this, "You attempted all questions.", Toast.LENGTH_SHORT)
-                                .show()
+                            val intent = Intent(this, ResultActivity::class.java)
+
+                            intent.putExtra(Constants.USER_NAME, mUserName)
+                            intent.putExtra(Constants.CORRECT_ANS, mCorrectAns)
+                            intent.putExtra(Constants.TOTAL_QUES, mQuestionList?.size)
+
+                            startActivity(intent)
+                            finish()
                         }
                     }
                 }
@@ -149,6 +160,9 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     val quesPos = mQuestionList?.get(mCurrentPosition-1)
                     if (quesPos!!.correctAns != mSelectedOption){
                         answerView(mSelectedOption, R.drawable.option_button_wrong_border)
+                    }
+                    else{
+                        mCorrectAns++
                     }
                     answerView(quesPos.correctAns, R.drawable.option_button_correct_border)
 
